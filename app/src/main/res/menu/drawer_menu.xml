@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="Delete List"
+        android:icon="@drawable/ic_delete"
+        android:id="@+id/delete_list_btn"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
+
+    <item
+        android:title="Add List"
+        android:icon="@drawable/ic_add_circle_outline_24"
+        android:id="@+id/add_list_btn"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
+
+    <item android:title="General" android:id="@+id/general">
+        <menu>
+            <item
+                android:id="@+id/lists"
+                android:icon="@drawable/ic_home_black_24dp"
+                android:title="Lists" />
+            <item
+                android:id="@+id/privacy"
+                android:icon="@drawable/ic_baseline_privacy_tip_24"
+                android:title="Privacy policy" />
+            <item
+                android:id="@+id/about"
+                android:icon="@drawable/ic_baseline_help_24"
+                android:title="About" />
+        </menu>
+    </item>
+
+    <item android:title="Other" android:id="@+id/other">
+        <menu>
+            <item
+                android:id="@+id/settings"
+                android:icon="@drawable/ic_settings_black_24dp"
+                android:title="Settings" />
+
+        </menu>
+    </item>
+</menu>
