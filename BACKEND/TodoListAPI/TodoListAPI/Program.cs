@@ -16,19 +16,7 @@ namespace TodoListAPI
     {
         public static void Main(string[] args)
         {
-            BookstoreDatabaseSettings settings = new BookstoreDatabaseSettings();
-            settings.ConnectionString = "mongodb+srv://MKFJM_Development:KVJwkNEZLjHxAopH@cluster0.rn5pq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-            settings.DatabaseName = "MKFJM_Development";
-            settings.BooksCollectionName = "TODO_List";
-            BookService neke = new BookService(settings);
-            List<Book> knjige = neke.Get();
-            foreach (Book knjiga in knjige)
-            {
-                Console.WriteLine(knjiga.BookName);
-            }
-
             CreateHostBuilder(args).Build().Run();
-
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
