@@ -1,21 +1,32 @@
-package com.mazej.todo_list.objects;
+package com.mazej.todo_list.database;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
-public class Task {
+public class PostTask {
 
+    private String access_token;
     private String id;
     private String name;
     private String description;
     private String dueDate;
     private boolean isCompleted;
 
-    public Task(String id, String name, String description, String dueDate, boolean isCompleted) {
+    public PostTask(String access_token, String id, String name, String description, String dueDate, boolean isCompleted) {
+        this.access_token = access_token;
         this.id = id;
         this.name = name;
         this.description = description;
         this.dueDate = dueDate;
         this.isCompleted = isCompleted;
+    }
+
+    public String getAccess_token() {
+        return access_token;
+    }
+
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
     }
 
     public String getId() {

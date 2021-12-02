@@ -31,6 +31,7 @@ public class ApplicationTodoList extends Application {
             editor.apply();
         }
         Log.d(TAG,"appID:" + idAPP);
+        System.out.println("APP ID: " + idAPP);
     }
 
     public void initData() {

@@ -26,7 +26,7 @@ public class TaskAdapter extends ArrayAdapter<Task> {
 
     private String id;
     private String name;
-    private Date date;
+    private String date;
 
     private TextView tvName;
     private TextView tvDate;
