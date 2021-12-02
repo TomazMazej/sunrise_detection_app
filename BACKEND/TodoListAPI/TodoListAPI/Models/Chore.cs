@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Text.Json.Serialization;
 
 namespace TodoListAPI.Models
 {
@@ -23,15 +24,22 @@ namespace TodoListAPI.Models
 
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
+        [JsonPropertyName("access_token")]
+        public string Token { get; set; }
 
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
+        [JsonPropertyName("description")]
         public string Description { get; set; }
 
         [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        [JsonPropertyName("dueDate")]
         public DateTime DueDate { get; set; }
 
+        [JsonPropertyName("isCompleted")]
         public bool IsCompleted { get; set; }
     }
 }

@@ -637,11 +637,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nejc\\Desktop\\MKFJM Developement\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Nejc\\Source\\Repos\\TomazMazej\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
       "projectName": "TodoListAPI",
-      "projectPath": "C:\\Users\\Nejc\\Desktop\\MKFJM Developement\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
+      "projectPath": "C:\\Users\\Nejc\\Source\\Repos\\TomazMazej\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
       "packagesPath": "C:\\Users\\Nejc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nejc\\Desktop\\MKFJM Developement\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\obj\\",
+      "outputPath": "C:\\Users\\Nejc\\Source\\Repos\\TomazMazej\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -700,7 +700,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

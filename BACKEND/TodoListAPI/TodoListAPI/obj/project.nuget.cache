@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MD3CrWONBUaCEr6IuI44m5uGRJr82LuMbgFgIpg0xWQhvW8RdKhM7hkk6poIQYElk0uD+6/og2BmUWKxE9XuMA==",
+  "dgSpecHash": "jY+Q4aLC70mltmIf0Na2D3JH7LcIxrPAIS413J/MqUyGcl1pc+934oVm103gtw/9gaaFdXrug7QlQ4DXsTRy+A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nejc\\Desktop\\MKFJM Developement\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
+  "projectFilePath": "C:\\Users\\Nejc\\Source\\Repos\\TomazMazej\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nejc\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\Nejc\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

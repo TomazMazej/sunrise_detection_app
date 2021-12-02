@@ -78,3 +78,44 @@ C:\Users\Nejc\Desktop\MKFJM Developement\todo_list_app\BACKEND\TodoListAPI\TodoL
 C:\Users\Nejc\Desktop\MKFJM Developement\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\ref\TodoListAPI.dll
 C:\Users\Nejc\Desktop\MKFJM Developement\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.pdb
 C:\Users\Nejc\Desktop\MKFJM Developement\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.genruntimeconfig.cache
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\appsettings.json
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\TodoListAPI.exe
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\TodoListAPI.deps.json
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\TodoListAPI.runtimeconfig.json
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\TodoListAPI.runtimeconfig.dev.json
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\TodoListAPI.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\ref\TodoListAPI.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\TodoListAPI.pdb
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\DnsClient.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\MongoDB.Bson.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\MongoDB.Driver.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\MongoDB.Driver.Core.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\MongoDB.Libmongocrypt.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\SharpCompress.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\runtimes\win\native\libzstd.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\runtimes\win\native\snappy32.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\runtimes\win\native\snappy64.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.csproj.AssemblyReference.cache
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.AssemblyInfoInputs.cache
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.AssemblyInfo.cs
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.csproj.CoreCompileInputs.cache
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\staticwebassets\TodoListAPI.StaticWebAssets.Manifest.cache
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\staticwebassets\TodoListAPI.StaticWebAssets.xml
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\scopedcss\bundle\TodoListAPI.styles.css
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.RazorTargetAssemblyInfo.cache
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.csproj.CopyComplete
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\ref\TodoListAPI.dll
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.pdb
+C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\obj\Debug\net5.0\TodoListAPI.genruntimeconfig.cache

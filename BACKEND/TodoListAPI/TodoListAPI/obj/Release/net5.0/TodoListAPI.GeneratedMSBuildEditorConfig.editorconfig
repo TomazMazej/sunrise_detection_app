@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = TodoListAPI
-build_property.ProjectDir = C:\Users\Nejc\Desktop\MKFJM Developement\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\
+build_property.ProjectDir = C:\Users\Nejc\Source\Repos\TomazMazej\todo_list_app\BACKEND\TodoListAPI\TodoListAPI\

@@ -17,17 +17,29 @@ namespace BooksApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<GroupChore>> Get() =>
-            _service.Get();
+        public ActionResult<List<GroupChore>> Get()
+        {
+            Request.Headers.TryGetValue("Authorization", out var token);
+
+            var groups = _service.Get().FindAll(x => x.Token == token);
+
+            return groups;
+        }
 
         [HttpGet("{id:length(24)}", Name = "GetGroup")]
         public ActionResult<GroupChore> Get(string id)
         {
+            Request.Headers.TryGetValue("Authorization", out var token);
+
             var groupChore = _service.Get(id);
 
             if (groupChore == null)
             {
                 return NotFound();
+            }
+            else if(groupChore.Token != token)
+            {
+                return null;
             }
 
             return groupChore;
@@ -36,6 +48,9 @@ namespace BooksApi.Controllers
         [HttpPost]
         public ActionResult<GroupChore> Create(GroupChore groupChore)
         {
+            Request.Headers.TryGetValue("Authorization", out var token);
+            
+            groupChore.Token = token;
             _service.Create(groupChore);
 
             return CreatedAtRoute("GetGroup", new { id = groupChore.Id.ToString() }, groupChore);
