@@ -63,7 +63,7 @@ namespace BooksApi.Controllers
             chore.AssignId();
             _service.Update(id, groupChore);
 
-            return CreatedAtRoute("GetChore", new { id = chore.Id.ToString() }, chore);
+            return CreatedAtRoute("GetChore", new { id = id, choreId = chore.Id.ToString() }, chore);
         }
 
         [HttpPut("{id:length(24)}/{choreId:length(24)}")]
