@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "D:\\Mazej Games\\Apps\\todo_list\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "D:\\Mazej Games\\Apps\\todo_list\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
         "outputPath": "D:\\Mazej Games\\Apps\\todo_list\\BACKEND\\TodoListAPI\\TodoListAPI\\obj\\",
+=======
+    "C:\\Users\\Nejc\\Source\\Repos\\TomazMazej\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Nejc\\Source\\Repos\\TomazMazej\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nejc\\Source\\Repos\\TomazMazej\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
+        "projectName": "TodoListAPI",
+        "projectPath": "C:\\Users\\Nejc\\Source\\Repos\\TomazMazej\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
+        "packagesPath": "C:\\Users\\Nejc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nejc\\Source\\Repos\\TomazMazej\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\obj\\",
+>>>>>>> f5d2485b72981c0a9915e6b3394ecafa62083c56
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "w5XPhtYQqGhyiXaxIkylHS4Fw04NITXfHc35+YRonfoIuQJRU8w1ud/v4o81TM3KJ72DIlRPTMWcxQMJvF//SA==",
   "success": true,
   "projectFilePath": "D:\\Mazej Games\\Apps\\todo_list\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
+=======
+  "dgSpecHash": "jY+Q4aLC70mltmIf0Na2D3JH7LcIxrPAIS413J/MqUyGcl1pc+934oVm103gtw/9gaaFdXrug7QlQ4DXsTRy+A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Nejc\\Source\\Repos\\TomazMazej\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
+>>>>>>> f5d2485b72981c0a9915e6b3394ecafa62083c56
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
