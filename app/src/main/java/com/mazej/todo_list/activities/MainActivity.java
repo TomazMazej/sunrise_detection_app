@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FragmentTransaction fragmentTransaction;
 
     private SharedPreferences sp;
+    private ApplicationTodoList app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

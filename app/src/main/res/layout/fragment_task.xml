@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <ListView
-        android:id="@+id/todoLists"
+        android:id="@+id/taskList"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
