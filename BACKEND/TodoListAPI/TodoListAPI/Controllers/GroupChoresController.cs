@@ -39,7 +39,7 @@ namespace BooksApi.Controllers
             }
             else if(groupChore.Token != token)
             {
-                return null;
+                return Unauthorized();
             }
 
             return groupChore;

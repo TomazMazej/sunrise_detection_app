@@ -7,16 +7,17 @@ namespace BooksApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChoresController : ControllerBase
+    public class ChoreController : ControllerBase
     {
         private readonly GroupChoreService _service;
 
-        public ChoresController(GroupChoreService service)
+        public ChoreController(GroupChoreService service)
         {
             _service = service;
         }
 
-        /*public ActionResult<List<Chore>> Get(string id)
+        [HttpGet("{id:length(24)}")]
+        public ActionResult<List<Chore>> Get(string id)
         {
             Request.Headers.TryGetValue("Authorization", out var token);
 
@@ -28,14 +29,14 @@ namespace BooksApi.Controllers
             }
             else if (groupChore.Token != token)
             {
-                return null;
+                return Unauthorized();
             }
 
             return groupChore.Chores;
-        }*/
+        }
 
-        [HttpGet("{id:length(24)}", Name = "GetTask")]
-        public ActionResult<Chore> GetTask(string id, string choreId)
+        [HttpGet("{id:length(24)}/{choreId:length(24)}", Name = "GetChore")]
+        public ActionResult<Chore> GetChore(string id, string choreId)
         {
             Request.Headers.TryGetValue("Authorization", out var token);
 
@@ -48,24 +49,25 @@ namespace BooksApi.Controllers
 
             else if (groupChore.Token != token)
             {
-                return null;
+                return Unauthorized();
             }
 
             return groupChore.Chores.Find(x => x.Id == choreId);
         }
 
-        [HttpPost]
-        public ActionResult<Chore> CreateTask(string id, Chore chore)
+        [HttpPost("{id:length(24)}")]
+        public ActionResult<Chore> CreateChore(string id, Chore chore)
         {
             var groupChore = _service.Get(id);
             groupChore.Chores.Add(chore);
+            chore.AssignId();
             _service.Update(id, groupChore);
 
-            return CreatedAtRoute("GetTask", new { id = chore.Id.ToString() }, chore);
+            return CreatedAtRoute("GetChore", new { id = chore.Id.ToString() }, chore);
         }
 
-        [HttpPut("{id:length(24)}")]
-        public IActionResult UpdateTask(string id, string choreId, Chore choreIn)
+        [HttpPut("{id:length(24)}/{choreId:length(24)}")]
+        public IActionResult UpdateChore(string id, string choreId, Chore choreIn)
         {
             var groupChore = _service.Get(id);
 
@@ -88,8 +90,8 @@ namespace BooksApi.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id:length(24)}")]
-        public IActionResult DeleteTask(string id, string choreId)
+        [HttpDelete("{id:length(24)}/{choreId:length(24)}")]
+        public IActionResult DeleteChore(string id, string choreId)
         {
             var groupChore = _service.Get(id);
 

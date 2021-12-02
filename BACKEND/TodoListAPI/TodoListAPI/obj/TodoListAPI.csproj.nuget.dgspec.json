@@ -1,19 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "D:\\Mazej Games\\Apps\\todo_list\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj": {}
-  },
-  "projects": {
-    "D:\\Mazej Games\\Apps\\todo_list\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Mazej Games\\Apps\\todo_list\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
-        "projectName": "TodoListAPI",
-        "projectPath": "D:\\Mazej Games\\Apps\\todo_list\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\Mazej Games\\Apps\\todo_list\\BACKEND\\TodoListAPI\\TodoListAPI\\obj\\",
-=======
     "C:\\Users\\Nejc\\Source\\Repos\\TomazMazej\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj": {}
   },
   "projects": {
@@ -25,18 +12,13 @@
         "projectPath": "C:\\Users\\Nejc\\Source\\Repos\\TomazMazej\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\TodoListAPI.csproj",
         "packagesPath": "C:\\Users\\Nejc\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Nejc\\Source\\Repos\\TomazMazej\\todo_list_app\\BACKEND\\TodoListAPI\\TodoListAPI\\obj\\",
->>>>>>> f5d2485b72981c0a9915e6b3394ecafa62083c56
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Nejc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
