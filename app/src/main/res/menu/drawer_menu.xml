@@ -16,6 +16,13 @@
         app:showAsAction="ifRoom"
         android:visible="false"/>
 
+    <item
+        android:title="Add Task"
+        android:icon="@drawable/ic_add_circle_outline_24"
+        android:id="@+id/add_task_btn"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
+
     <item android:title="General" android:id="@+id/general">
         <menu>
             <item

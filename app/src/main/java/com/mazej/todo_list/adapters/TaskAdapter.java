@@ -47,7 +47,7 @@ public class TaskAdapter extends ArrayAdapter<Task> {
 
         id = getItem(position).getId();
         name = getItem(position).getName();
-        date = getItem(position).getDate();
+        date = getItem(position).getDueDate();
 
         inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);

@@ -1,17 +1,26 @@
-package com.mazej.todo_list.objects;
+package com.mazej.todo_list.database;
+
+import com.mazej.todo_list.objects.Task;
 
 import java.util.List;
 
-public class TodoList {
+public class GetTodoList {
 
+    private String access_token;
     private String id;
     private String name;
     private List<Task> tasks;
 
-    public TodoList(String id, String name, List<Task> tasks) {
-        this.id = id;
-        this.name = name;
-        this.tasks = tasks;
+    public GetTodoList(String access_token) {
+        this.access_token = access_token;
+    }
+
+    public String getAccess_token() {
+        return access_token;
+    }
+
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
     }
 
     public String getId() {

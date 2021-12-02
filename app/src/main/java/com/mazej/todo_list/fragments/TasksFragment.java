@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import static com.mazej.todo_list.activities.MainActivity.myMenu;
 import static com.mazej.todo_list.activities.MainActivity.toolbar;
 
 public class TasksFragment extends Fragment {
@@ -43,6 +44,7 @@ public class TasksFragment extends Fragment {
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle(todoList.getName());
         MainActivity.hideButtons();
+        myMenu.findItem(R.id.add_task_btn).setVisible(true);
 
         theList = new ArrayList<>();
         taskList = view.findViewById(R.id.taskList);
@@ -51,7 +53,10 @@ public class TasksFragment extends Fragment {
         arrayAdapter = new TaskAdapter(getActivity().getBaseContext(), R.layout.adapter_task, theList);
         taskList.setAdapter(arrayAdapter);
 
-        // Get all tasks from current list
+        for(int i = 0; i < todoList.getTasks().size(); i++){
+            theList.add(todoList.getTasks().get(i));
+        }
+        arrayAdapter.notifyDataSetChanged();
 
         return view;
     }
