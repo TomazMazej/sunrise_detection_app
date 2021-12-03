@@ -8,39 +8,22 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-import android.app.Dialog;
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
 
 import com.google.android.material.navigation.NavigationView;
+import com.mazej.todo_list.ApplicationTodoList;
 import com.mazej.todo_list.R;
-import com.mazej.todo_list.database.GetTodoList;
-import com.mazej.todo_list.database.PostTodoList;
-import com.mazej.todo_list.database.TodoListAPI;
+import com.mazej.todo_list.fragments.AboutFragment;
 import com.mazej.todo_list.fragments.MainFragment;
-import com.mazej.todo_list.objects.TodoList;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
-import static com.mazej.todo_list.activities.ApplicationTodoList.APP_ID;
-import static com.mazej.todo_list.database.TodoListAPI.BASE_URL;
+import com.mazej.todo_list.fragments.PrivacyFragment;
+import com.mazej.todo_list.fragments.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -53,20 +36,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FragmentTransaction fragmentTransaction;
 
     private SharedPreferences sp;
-    private ApplicationTodoList app;
-    private TodoListAPI todoListAPI;
+    public static ApplicationTodoList app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        System.out.println("NEKI: " + sp.getString("APP_ID_KEY","DEFAULT VALUE ERR"));
+        initData();
 
         // Toolbar
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Home");
+        toolbar.setTitle("TODO Lists");
         setSupportActionBar(toolbar);
 
         // Drawer
@@ -79,11 +59,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
         actionBarDrawerToggle.syncState();
 
-        // Load default fragment
+        // Naložimo prvi fragment
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.container_fragment, new MainFragment());
         fragmentTransaction.commit();
+    }
+
+    @SuppressLint("StringFormatMatches")
+    private void initData() {
+        app = (ApplicationTodoList) getApplication();
+        sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
     }
 
     @Override
@@ -97,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) { // Handles side nav buttons
-
         hideButtons();
         drawerLayout.closeDrawer(GravityCompat.START);
         fragmentManager = getSupportFragmentManager();
@@ -107,19 +92,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.replace(R.id.container_fragment, new MainFragment());
         }
         if (menuItem.getItemId() == R.id.privacy) {
-
+            fragmentTransaction.replace(R.id.container_fragment, new PrivacyFragment());
         }
         if (menuItem.getItemId() == R.id.about) {
-
+            fragmentTransaction.replace(R.id.container_fragment, new AboutFragment());
         }
         if (menuItem.getItemId() == R.id.settings) {
-
+            fragmentTransaction.replace(R.id.container_fragment, new SettingsFragment());
         }
         fragmentTransaction.commit();
         return true;
     }
 
-    public static void hideButtons() { // Hides all the toolbar buttons
+    public static void hideButtons() { // Skrijemo gumbe na toolbaru
         myMenu.findItem(R.id.general).setVisible(false);
         myMenu.findItem(R.id.other).setVisible(false);
     }

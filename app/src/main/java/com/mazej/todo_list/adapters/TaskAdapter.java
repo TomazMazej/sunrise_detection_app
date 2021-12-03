@@ -57,7 +57,7 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         simpleCheckBox = (CheckBox) convertView.findViewById(R.id.simpleCheckBox);
 
         tvName.setText(name);
-        tvDate.setText(date.toString());
+        tvDate.setText(date);
 
         return convertView;
     }

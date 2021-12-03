@@ -6,8 +6,8 @@
         <menu>
             <item
                 android:id="@+id/lists"
-                android:icon="@drawable/ic_home_black_24dp"
-                android:title="Lists" />
+                android:icon="@drawable/ic_baseline_fact_check_24"
+                android:title="TODO Lists" />
             <item
                 android:id="@+id/privacy"
                 android:icon="@drawable/ic_baseline_privacy_tip_24"

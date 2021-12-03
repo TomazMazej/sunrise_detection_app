@@ -12,6 +12,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface TodoListAPI {
@@ -23,6 +24,7 @@ public interface TodoListAPI {
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
+    // Seznami opravil
     @GET("api/GroupChores")
     Call<List<GetTodoList>> getTodoLists(
             @Header("Authorization") String access_token);
@@ -37,9 +39,22 @@ public interface TodoListAPI {
             @Header("Authorization") String access_token,
             @Path("id") String id);
 
+    // Posamezna opravila
     @POST("api/Chore/{id}")
     Call<PostTask> postTask(
             @Body PostTask task,
             @Header("Authorization") String access_token,
             @Path("id") String id);
+
+    @DELETE("api/Chore/{id}/{choreId}")
+    Call<Void> deleteTask(
+            @Header("Authorization") String access_token,
+            @Path("id") String id,
+            @Path("choreId") String choreId);
+
+    @PUT("api/Chore/{id}/{choreId}")
+    Call<PutTask> putTask(
+            @Header("Authorization") String access_token,
+            @Path("id") String id,
+            @Path("choreId") String choreId);
 }
