@@ -52,7 +52,7 @@ public class ApplicationTodoList extends Application {
     }
 
     public void generateDefaultLists(){
-        String defaults [] = {"Home", "Groceries", "My Day"};
+        String[] defaults = {"Home", "Groceries", "My Day"};
         for(int i = 0; i < defaults.length; i++){
             // Pošljemo nov seznam opravil
             PostTodoList list = new PostTodoList(app.idAPP, "", defaults[i], null);
