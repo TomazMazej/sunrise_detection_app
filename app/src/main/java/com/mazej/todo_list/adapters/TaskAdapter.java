@@ -2,6 +2,7 @@ package com.mazej.todo_list.adapters;
 
 import android.content.Context;
 import android.graphics.Paint;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +18,17 @@ import com.mazej.todo_list.database.TodoListAPI;
 import com.mazej.todo_list.fragments.TasksFragment;
 import com.mazej.todo_list.objects.Task;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,7 +47,6 @@ public class TaskAdapter extends ArrayAdapter<Task> {
 
     private String id;
     private String name;
-    private String date;
 
     private TextView tvName;
     private TextView tvDate;
@@ -56,6 +63,7 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         this.todoListId = todoListId;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @NonNull
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -63,7 +71,13 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         Task task = getItem(position);
         id = getItem(position).getId();
         name = getItem(position).getName();
-        date = getItem(position).getDueDate();
+
+        DateTimeFormatter inputParser = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+        LocalDate date = LocalDate.parse(getItem(position).getDueDate(), inputParser);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM yyyy", Locale.ENGLISH);
+        String output = date.format(formatter);
+
 
         inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);
@@ -73,7 +87,7 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         simpleCheckBox = (CheckBox) convertView.findViewById(R.id.simpleCheckBox);
 
         tvName.setText(name);
-        tvDate.setText(date);
+        tvDate.setText(output);
         if(task.isCompleted()){
             simpleCheckBox.setChecked(true);
             tvName.setPaintFlags(tvName.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
