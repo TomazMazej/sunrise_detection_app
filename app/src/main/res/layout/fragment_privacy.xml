@@ -5,11 +5,15 @@
     android:layout_marginTop="?attr/actionBarSize"
     android:layout_height="match_parent">
 
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <TextView
         android:id="@+id/date_text"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Privacy Policy
+        android:text="
 MKFJM development built the Todo list app app as a Free app. This SERVICE is provided by MKFJM development at no cost and is intended for use as is.
 
 This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.
@@ -69,10 +73,13 @@ Contact Us
 
 If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at MKFJM_development@gmail.com."
         android:fontFamily="@font/playfair_display"
-        android:textSize="11sp"
+        android:textSize="20sp"
         android:textColor="#ffffff"
+        android:textAlignment="center"
         tools:ignore="MissingConstraints"
         android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp" />
+        android:layout_marginStart="10dp"
+        android:gravity="center_horizontal" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
