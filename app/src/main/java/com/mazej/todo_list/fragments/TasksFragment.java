@@ -85,7 +85,7 @@ public class TasksFragment extends Fragment {
         taskList = view.findViewById(R.id.taskList);
 
         // Set custom adapter
-        arrayAdapter = new TaskAdapter(getActivity().getBaseContext(), R.layout.adapter_task, theList);
+        arrayAdapter = new TaskAdapter(getActivity().getBaseContext(), R.layout.adapter_task, theList, todoList.getId());
         taskList.setAdapter(arrayAdapter);
 
         // Dodamo opravila v seznam
@@ -180,25 +180,25 @@ public class TasksFragment extends Fragment {
                 String name = nameEt.getText().toString();
                 String description = descriptionEt.getText().toString();
                 String date = getDate(datePickerD.getYear(), datePickerD.getMonth(), datePickerD.getDayOfMonth());
-                // Pošljemo zahtevo za dodajanje opravila
+                // Pošljemo zahtevo za spremembo opravila
                 PutTask list = new PutTask(app.idAPP, task.getId(), name, description, date, task.isCompleted());
                 todoListAPI = retrofit.create(TodoListAPI.class);
-                Call<PutTask> call = todoListAPI.putTask(app.idAPP, todoList.getId(), task.getId());
+                Call<PutTask> call = todoListAPI.putTask(list, app.idAPP, todoList.getId(), task.getId());
 
                 call.enqueue(new Callback<PutTask>() {
                     @Override
                     public void onResponse(Call<PutTask> call, Response<PutTask> response) {
                         if (!response.isSuccessful()) { // Če zahteva ni uspešna
-                            System.out.println("Response: PostTask neuspesno!");
+                            System.out.println("Response: PutTask neuspesno!");
                             System.out.println(date);
                         } else {
-                            System.out.println("Response: PostTask uspešno!");
+                            System.out.println("Response: PutTask uspešno!");
                             arrayAdapter.notifyDataSetChanged();
                         }
                     }
                     @Override
                     public void onFailure(Call<PutTask> call, Throwable t) {
-                        System.out.println("No response: PostTask neuspešno!");
+                        System.out.println("No response: PutTask neuspešno!");
                         System.out.println(t);
                     }
                 });
@@ -270,5 +270,4 @@ public class TasksFragment extends Fragment {
 
         return nowAsString + "+01:00";
     }
-
 }

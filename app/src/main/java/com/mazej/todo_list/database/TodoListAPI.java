@@ -54,6 +54,7 @@ public interface TodoListAPI {
 
     @PUT("api/Chore/{id}/{choreId}")
     Call<PutTask> putTask(
+            @Body PutTask task,
             @Header("Authorization") String access_token,
             @Path("id") String id,
             @Path("choreId") String choreId);
