@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,7 +32,9 @@ import com.mazej.todo_list.database.PostTodoList;
 import com.mazej.todo_list.database.TodoListAPI;
 import com.mazej.todo_list.objects.TodoList;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -47,6 +50,11 @@ public class MainFragment extends Fragment {
     private ArrayList<String> names;
     private ArrayAdapter<String> arrayAdapter;
 
+    private TextView dateTimeDisplay;
+    private Calendar calendar;
+    private SimpleDateFormat dateFormat;
+    private String date;
+
     private FloatingActionButton addListButton;
 
     public MainFragment() {
@@ -60,6 +68,14 @@ public class MainFragment extends Fragment {
 
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle("TODO Lists");
+
+        //datum
+        dateTimeDisplay = view.findViewById(R.id.date_text);
+        calendar = Calendar.getInstance();
+
+        dateFormat = new SimpleDateFormat("EEEE, d MMMM");
+        date = dateFormat.format(calendar.getTime());
+        dateTimeDisplay.setText(date);
 
         names = new ArrayList<>();
         theList = new ArrayList<>();

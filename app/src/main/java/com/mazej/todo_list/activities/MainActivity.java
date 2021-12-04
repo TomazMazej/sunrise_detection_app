@@ -18,6 +18,7 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.mazej.todo_list.ApplicationTodoList;
@@ -26,6 +27,9 @@ import com.mazej.todo_list.fragments.AboutFragment;
 import com.mazej.todo_list.fragments.MainFragment;
 import com.mazej.todo_list.fragments.PrivacyFragment;
 import com.mazej.todo_list.fragments.SettingsFragment;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -50,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("TODO Lists");
         setSupportActionBar(toolbar);
+
 
         // Drawer
         drawerLayout = findViewById(R.id.drawer);

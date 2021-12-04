@@ -3,8 +3,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_margin="16dp"
                   android:orientation="vertical">
@@ -13,7 +13,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="Add Task"
+            android:text="@string/add_task"
+            android:fontFamily="@font/playfair_display"
             android:textColor="#000000"
             android:textSize="24sp" />
 
@@ -21,7 +22,8 @@
             android:id="@+id/name_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="@string/name"
+            android:fontFamily="@font/playfair_display"
             android:imeOptions="actionNext"
             android:inputType="text" />
 
@@ -29,7 +31,8 @@
             android:id="@+id/description_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description"
+            android:hint="@string/description"
+            android:fontFamily="@font/playfair_display"
             android:imeOptions="actionNext"
             android:inputType="text" />
 
@@ -45,8 +48,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:background="@color/colorPrimary"
-            android:text="Add"
+            android:fontFamily="@font/playfair_display"
+            android:text="@string/add"
+            android:textSize="20sp"
+            android:background="@drawable/button_style"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 </ScrollView>

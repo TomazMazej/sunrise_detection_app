@@ -6,6 +6,13 @@
     android:orientation="horizontal"
     android:weightSum="100">
 
+    <CheckBox
+        android:id="@+id/simpleCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:focusable="false" />
+
     <TextView
         android:id="@+id/nameText"
         android:layout_width="match_parent"
@@ -14,11 +21,17 @@
         android:layout_weight="50"
         android:fontFamily="@font/playfair_display"
         android:gravity="center"
-        android:text="Pomij posodo"
+        android:text="@string/pomij_posodo"
         android:textColor="#000"
         android:textSize="18sp"
         android:textStyle="italic" />
-
+    <android.widget.TextClock
+        android:id="@+id/datumprikaz"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:format12Hour="dd.MM.yyyy"
+        android:format24Hour="@null"
+        />
     <TextView
         android:id="@+id/dateText"
         android:layout_width="match_parent"
@@ -27,17 +40,10 @@
         android:fontFamily="@font/playfair_display"
         android:gravity="center"
         android:padding="5dp"
-        android:text="6.12.2012"
+        android:text="@string/_6_12_2012"
+        android:textSize="22sp"
         android:textAlignment="center"
         android:textColor="#0EA80E"
         android:textStyle="bold" />
-
-    <CheckBox
-        android:id="@+id/simpleCheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="false"
-        android:focusable="false"
-        android:text=" " />
 
 </LinearLayout>
