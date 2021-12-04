@@ -1,5 +1,9 @@
 package com.mazej.todo_list.fragments;
 
+import static com.mazej.todo_list.activities.MainActivity.app;
+import static com.mazej.todo_list.activities.MainActivity.toolbar;
+import static com.mazej.todo_list.database.TodoListAPI.retrofit;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -16,6 +20,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mazej.todo_list.R;
 import com.mazej.todo_list.database.GetTodoList;
@@ -26,16 +34,9 @@ import com.mazej.todo_list.objects.TodoList;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static com.mazej.todo_list.activities.MainActivity.app;
-import static com.mazej.todo_list.activities.MainActivity.toolbar;
-import static com.mazej.todo_list.database.TodoListAPI.retrofit;
 
 public class MainFragment extends Fragment {
 
@@ -167,7 +168,7 @@ public class MainFragment extends Fragment {
         dialog.setContentView(R.layout.add_list_dialog);
 
         final EditText nameEt = dialog.findViewById(R.id.name_et);
-        Button submitButton = dialog.findViewById(R.id.submit_button);
+        Button submitButton = dialog.findViewById(R.id.submit_button_list);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override

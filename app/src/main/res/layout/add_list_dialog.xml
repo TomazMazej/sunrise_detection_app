@@ -27,5 +27,5 @@
         android:text="Add"
         android:textColor="#FFFFFF"
         android:background="@color/colorPrimary"
-        android:id="@+id/submit_button"/>
+        android:id="@+id/submit_button_list" />
 </LinearLayout>
