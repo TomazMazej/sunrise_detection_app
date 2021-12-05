@@ -1,24 +1,24 @@
 package com.mazej.todo_list;
 
+import static com.mazej.todo_list.database.TodoListAPI.retrofit;
+
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import com.mazej.todo_list.database.PostTodoList;
 import com.mazej.todo_list.database.TodoListAPI;
-import com.mazej.todo_list.objects.TodoList;
+import com.mazej.todo_list.objects.Task;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.mazej.todo_list.activities.MainActivity.app;
-import static com.mazej.todo_list.database.TodoListAPI.retrofit;
-
-public class ApplicationTodoList extends Application {
+public class ApplicationTodoList extends Application
+{
     public static final String TAG = ApplicationTodoList.class.getSimpleName();
     public static final String APP_ID = "APP_ID_KEY";
 
@@ -26,15 +26,20 @@ public class ApplicationTodoList extends Application {
     private SharedPreferences sp;
     public static String idAPP;
 
-    public void onCreate() {
+    public ArrayList<Task> theList;
+
+    public void onCreate()
+    {
         super.onCreate();
         initData();
     }
 
     // Zgeneriramo edinstven UUID ključ, ki služi kot access_token
-    public void setAppId() {
+    public void setAppId()
+    {
         sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        if (sp.contains(APP_ID)) { // Ce ze obstaja ga preberemo
+        if (sp.contains(APP_ID))
+        { // Ce ze obstaja ga preberemo
             idAPP = sp.getString(APP_ID, "DEFAULT VALUE ERR");
         }
         else { // Zgeneriramo ga prvic
@@ -46,18 +51,21 @@ public class ApplicationTodoList extends Application {
         }
     }
 
-    public void initData() {
+    public void initData()
+    {
         setAppId();
         sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        theList = new ArrayList<>();
     }
 
     public void generateDefaultLists(){
         String[] defaults = {"Home", "Groceries", "My Day"};
         for(int i = 0; i < defaults.length; i++){
             // Pošljemo nov seznam opravil
-            PostTodoList list = new PostTodoList(app.idAPP, "", defaults[i], null);
+            PostTodoList list = new PostTodoList(idAPP, "", defaults[i], null);
             todoListAPI = retrofit.create(TodoListAPI.class);
-            Call<PostTodoList> call = todoListAPI.postTodoList(list, app.idAPP);
+            Call<PostTodoList> call = todoListAPI.postTodoList(list, idAPP);
 
             call.enqueue(new Callback<PostTodoList>() {
                 @Override
@@ -76,4 +84,5 @@ public class ApplicationTodoList extends Application {
             });
         }
     }
+
 }

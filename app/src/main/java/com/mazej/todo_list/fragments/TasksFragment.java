@@ -1,6 +1,5 @@
 package com.mazej.todo_list.fragments;
 
-import static com.mazej.todo_list.activities.MainActivity.app;
 import static com.mazej.todo_list.activities.MainActivity.toolbar;
 import static com.mazej.todo_list.database.TodoListAPI.retrofit;
 
@@ -27,6 +26,7 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.mazej.todo_list.ApplicationTodoList;
 import com.mazej.todo_list.R;
 import com.mazej.todo_list.adapters.TaskAdapter;
 import com.mazej.todo_list.database.PostTask;
@@ -37,7 +37,6 @@ import com.mazej.todo_list.objects.TodoList;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 import retrofit2.Call;
@@ -49,12 +48,12 @@ public class TasksFragment extends Fragment
 
     private TodoListAPI todoListAPI;
 
-    private TodoList todoList;
+    private final TodoList todoList;
     private ListView taskList;
-    private ArrayList<Task> theList;
-    public static TaskAdapter arrayAdapter;
+    public TaskAdapter arrayAdapter;
 
     private FloatingActionButton addTaskButton;
+    private ApplicationTodoList app;
 
     public TasksFragment(TodoList todoList)
     {
@@ -63,21 +62,23 @@ public class TasksFragment extends Fragment
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState)
     {
 
         View view = inflater.inflate(R.layout.fragment_task, container, false);
+        app = (ApplicationTodoList) getActivity().getApplication();
 
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle(todoList.getName());
 
         addTaskButton = view.findViewById(R.id.add_task_btn);
 
-        theList = new ArrayList<>();
         taskList = view.findViewById(R.id.taskList);
 
         // Set custom adapter
-        arrayAdapter = new TaskAdapter(getActivity().getBaseContext(), R.layout.adapter_task, theList, todoList.getId());
+        arrayAdapter = new TaskAdapter(getActivity().getBaseContext(), R.layout.adapter_task,
+                app.theList, todoList.getId(), app);
         taskList.setAdapter(arrayAdapter);
 
         // Dodamo opravila v seznam
@@ -85,9 +86,10 @@ public class TasksFragment extends Fragment
         {
             for (int i = 0; i < todoList.getTasks().size(); i++)
             {
-                theList.add(todoList.getTasks().get(i));
+                app.theList.add(todoList.getTasks().get(i));
             }
         }
+
         arrayAdapter.notifyDataSetChanged();
 
         // Z dolgim pritiskom na opravilo ga lahko izbrišemo
@@ -109,7 +111,8 @@ public class TasksFragment extends Fragment
                             {
                                 // Pošljemo zahtevo za izbris
                                 todoListAPI = retrofit.create(TodoListAPI.class);
-                                Call<Void> call = todoListAPI.deleteTask(app.idAPP, todoList.getId(), theList.get(item).getId());
+                                Call<Void> call = todoListAPI.deleteTask(ApplicationTodoList.idAPP, todoList.getId(),
+                                        app.theList.get(item).getId());
 
                                 call.enqueue(new Callback<Void>()
                                 {
@@ -123,7 +126,7 @@ public class TasksFragment extends Fragment
                                         else
                                         {
                                             System.out.println("Response: DeleteTask uspešno!");
-                                            theList.remove(item);
+                                            app.theList.remove(item);
                                             arrayAdapter.notifyDataSetChanged();
                                         }
                                     }
@@ -160,6 +163,7 @@ public class TasksFragment extends Fragment
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
+                System.out.println("kliknili smo na i " + position);
                 showEditTaskDialog(position);
             }
         });
@@ -179,7 +183,7 @@ public class TasksFragment extends Fragment
         EditText descriptionEt = dialog.findViewById(R.id.description_et);
         DatePicker datePickerD = dialog.findViewById(R.id.date_picker);
 
-        Task task = theList.get(position);
+        Task task = app.theList.get(position);
         nameEt.setText(task.getName());
         descriptionEt.setText(task.getDescription());
 
@@ -191,11 +195,15 @@ public class TasksFragment extends Fragment
             {
                 String name = nameEt.getText().toString();
                 String description = descriptionEt.getText().toString();
-                String date = getDate(datePickerD.getYear(), datePickerD.getMonth(), datePickerD.getDayOfMonth());
+                String date = getDate(datePickerD.getYear(), datePickerD.getMonth(),
+                        datePickerD.getDayOfMonth());
+
                 // Pošljemo zahtevo za spremembo opravila
-                PutTask list = new PutTask(app.idAPP, task.getId(), name, description, date, task.isCompleted());
+                PutTask list = new PutTask(ApplicationTodoList.idAPP, task.getId(), name, description, date,
+                        task.isCompleted());
                 todoListAPI = retrofit.create(TodoListAPI.class);
-                Call<PutTask> call = todoListAPI.putTask(list, app.idAPP, todoList.getId(), task.getId());
+                Call<PutTask> call = todoListAPI.putTask(list, ApplicationTodoList.idAPP, todoList.getId(),
+                        task.getId());
 
                 call.enqueue(new Callback<PutTask>()
                 {
@@ -211,7 +219,8 @@ public class TasksFragment extends Fragment
                         {
                             System.out.println("Response: PutTask uspešno!");
 
-                            theList.set(position, new Task(task.getId(), name, description, date, false));
+                            app.theList.set(position, new Task(task.getId(), name, description,
+                                    date, false));
                             arrayAdapter.notifyDataSetChanged();
                         }
                     }
@@ -249,11 +258,12 @@ public class TasksFragment extends Fragment
             {
                 String name = nameEt.getText().toString();
                 String description = descriptionEt.getText().toString();
-                String date = getDate(datePickerD.getYear(), datePickerD.getMonth(), datePickerD.getDayOfMonth());
+                String date = getDate(datePickerD.getYear(), datePickerD.getMonth(),
+                        datePickerD.getDayOfMonth());
                 // Pošljemo zahtevo za dodajanje opravila
-                PostTask list = new PostTask(app.idAPP, "", name, description, date, false);
+                PostTask list = new PostTask(ApplicationTodoList.idAPP, "", name, description, date, false);
                 todoListAPI = retrofit.create(TodoListAPI.class);
-                Call<PostTask> call = todoListAPI.postTask(list, app.idAPP, todoList.getId());
+                Call<PostTask> call = todoListAPI.postTask(list, ApplicationTodoList.idAPP, todoList.getId());
 
                 call.enqueue(new Callback<PostTask>()
                 {
@@ -268,7 +278,8 @@ public class TasksFragment extends Fragment
                         else
                         {
                             System.out.println("Response: PostTask uspešno!");
-                            theList.add(new Task(response.body().getId(), name, description, date, false));
+                            app.theList.add(new Task(response.body().getId(), name, description,
+                                    date, false));
                             arrayAdapter.notifyDataSetChanged();
                         }
                     }
