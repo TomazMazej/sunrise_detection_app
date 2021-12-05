@@ -5,6 +5,8 @@ import static com.mazej.todo_list.database.TodoListAPI.retrofit;
 import android.content.Context;
 import android.graphics.Paint;
 import android.os.Build;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +43,7 @@ public class TaskAdapter extends ArrayAdapter<Task> {
 
     private String id;
     private String name;
+    private String description;
 
     private TextView tvName;
     private TextView tvDate;
@@ -68,6 +71,7 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         Task task = getItem(position);
         id = getItem(position).getId();
         name = getItem(position).getName();
+        description = getItem(position).getDescription();
 
         DateTimeFormatter inputParser = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
         LocalDate date = LocalDate.parse(getItem(position).getDueDate(), inputParser);
@@ -82,7 +86,11 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         tvDate = (TextView) convertView.findViewById(R.id.dateText);
         simpleCheckBox = (CheckBox) convertView.findViewById(R.id.simpleCheckBox);
 
-        tvName.setText(name);
+        String vmesna = name + "\n" + description;
+        SpannableString ss1=  new SpannableString(vmesna);
+        ss1.setSpan(new RelativeSizeSpan(0.75f),name.length(),vmesna.length(), 0);
+
+        tvName.setText(ss1);
         tvDate.setText(output);
         if(task.isCompleted()) {
             simpleCheckBox.setChecked(true);

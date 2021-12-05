@@ -248,6 +248,7 @@ public class TasksFragment extends Fragment {
             }
         });
         dialog.show();
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_style);
     }
 
     public static String getDate(int year, int month, int day) {

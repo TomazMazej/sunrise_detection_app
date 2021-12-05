@@ -173,7 +173,6 @@ public class MainFragment extends Fragment {
         });
         return view;
     }
-
     void showAddListDialog() {
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -214,5 +213,6 @@ public class MainFragment extends Fragment {
             }
         });
         dialog.show();
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_style);
     }
 }
