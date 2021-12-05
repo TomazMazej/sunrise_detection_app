@@ -23,25 +23,20 @@
         android:layout_height="71dp"
         android:padding="5dp"
         android:layout_weight="50"
-        android:fontFamily="@font/playfair_display"
+        android:fontFamily="@font/merriweather_regular"
         android:gravity="center"
         android:text="@string/pomij_posodo"
+        android:maxLines="10"
         android:textColor="#000"
         android:textSize="18sp"
         android:textStyle="italic" />
-    <android.widget.TextClock
-        android:id="@+id/datumprikaz"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:format12Hour="dd.MM.yyyy"
-        android:format24Hour="@null"
-        />
+
     <TextView
         android:id="@+id/dateText"
         android:layout_width="match_parent"
         android:layout_height="71dp"
         android:layout_weight="50"
-        android:fontFamily="@font/playfair_display"
+        android:fontFamily="@font/merriweather_regular"
         android:gravity="center"
         android:padding="5dp"
         android:text="@string/_6_12_2012"

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginTop="?attr/actionBarSize">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:maxLines="200"
             android:text="We are MKFJM development team"
-            android:fontFamily="@font/playfair_display"
+            android:fontFamily="@font/merriweather_regular"
             android:textSize="20sp"
             android:textColor="#ffffff"
             android:textAlignment="center"

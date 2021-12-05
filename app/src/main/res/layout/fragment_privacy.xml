@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:maxLines="200"
         android:text="@string/Privacy_policy"
-        android:fontFamily="@font/playfair_display"
+        android:fontFamily="@font/merriweather_regular"
         android:textSize="20sp"
         android:textColor="#ffffff"
         android:textAlignment="center"
