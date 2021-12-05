@@ -17,9 +17,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ApplicationTodoList extends Application
-{
-    public static final String TAG = ApplicationTodoList.class.getSimpleName();
+public class ApplicationTodoList extends Application {
     public static final String APP_ID = "APP_ID_KEY";
 
     private TodoListAPI todoListAPI;
@@ -28,18 +26,15 @@ public class ApplicationTodoList extends Application
 
     public ArrayList<Task> theList;
 
-    public void onCreate()
-    {
+    public void onCreate() {
         super.onCreate();
         initData();
     }
 
     // Zgeneriramo edinstven UUID ključ, ki služi kot access_token
-    public void setAppId()
-    {
+    public void setAppId() {
         sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        if (sp.contains(APP_ID))
-        { // Ce ze obstaja ga preberemo
+        if (sp.contains(APP_ID)) { // Ce ze obstaja ga preberemo
             idAPP = sp.getString(APP_ID, "DEFAULT VALUE ERR");
         }
         else { // Zgeneriramo ga prvic
@@ -51,15 +46,13 @@ public class ApplicationTodoList extends Application
         }
     }
 
-    public void initData()
-    {
+    public void initData() {
         setAppId();
         sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-
         theList = new ArrayList<>();
     }
 
-    public void generateDefaultLists(){
+    public void generateDefaultLists() {
         String[] defaults = {"Home", "Groceries", "My Day"};
         for(int i = 0; i < defaults.length; i++){
             // Pošljemo nov seznam opravil
@@ -84,5 +77,4 @@ public class ApplicationTodoList extends Application
             });
         }
     }
-
 }

@@ -31,8 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TaskAdapter extends ArrayAdapter<Task>
-{
+public class TaskAdapter extends ArrayAdapter<Task> {
 
     private TodoListAPI todoListAPI;
 
@@ -52,15 +51,12 @@ public class TaskAdapter extends ArrayAdapter<Task>
 
     private final ApplicationTodoList app;
 
-    public TaskAdapter(Context context, int resource, ArrayList<Task> objects, String todoListId,
-                       ApplicationTodoList app)
-    {
+    public TaskAdapter(Context context, int resource, ArrayList<Task> objects, String todoListId, ApplicationTodoList app) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;
         this.tasksList = objects;
         this.todoListId = todoListId;
-
         this.app = app;
     }
 
@@ -79,7 +75,6 @@ public class TaskAdapter extends ArrayAdapter<Task>
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM yyyy", Locale.ENGLISH);
         String output = date.format(formatter);
 
-
         inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);
 
@@ -89,7 +84,7 @@ public class TaskAdapter extends ArrayAdapter<Task>
 
         tvName.setText(name);
         tvDate.setText(output);
-        if(task.isCompleted()){
+        if(task.isCompleted()) {
             simpleCheckBox.setChecked(true);
             tvName.setPaintFlags(tvName.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
@@ -97,8 +92,7 @@ public class TaskAdapter extends ArrayAdapter<Task>
         // On checkbox change
         simpleCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton arg0, boolean arg1)
-            {
+            public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
                 String name = task.getName();
                 String description = task.getDescription();
                 String date = task.getDueDate();
@@ -108,27 +102,20 @@ public class TaskAdapter extends ArrayAdapter<Task>
                 todoListAPI = retrofit.create(TodoListAPI.class);
                 Call<PutTask> call = todoListAPI.putTask(list, ApplicationTodoList.idAPP, todoListId, task.getId());
 
-                call.enqueue(new Callback<PutTask>()
-                {
+                call.enqueue(new Callback<PutTask>() {
                     @Override
-                    public void onResponse(Call<PutTask> call, Response<PutTask> response)
-                    {
-                        if (!response.isSuccessful())
-                        { // Če zahteva ni uspešna
+                    public void onResponse(Call<PutTask> call, Response<PutTask> response) {
+                        if (!response.isSuccessful()) { // Če zahteva ni uspešna
                             System.out.println("Response: CheckboxPut neuspesno!");
                             System.out.println(date);
                         }
-                        else
-                        {
+                        else {
                             System.out.println("Response: CheckboxPut uspešno!");
 
-                            for (Task task : app.theList)
-                            {
-                                if (task.getName() == name && task.getDescription() == description)
-                                {
+                            for (Task task : app.theList) {
+                                if (task.getName().equals(name) && task.getDescription().equals(description)) {
                                     task.setCompleted(!task.isCompleted());
                                     TaskAdapter.super.notifyDataSetChanged();
-
                                     break;
                                 }
                             }
@@ -142,7 +129,6 @@ public class TaskAdapter extends ArrayAdapter<Task>
                 });
             }
         });
-
         return convertView;
     }
 }

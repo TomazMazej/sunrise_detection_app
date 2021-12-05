@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
-    private SharedPreferences sp;
     public static ApplicationTodoList app;
 
     @Override
@@ -54,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("TODO Lists");
         setSupportActionBar(toolbar);
-
 
         // Drawer
         drawerLayout = findViewById(R.id.drawer);
@@ -76,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @SuppressLint("StringFormatMatches")
     private void initData() {
         app = (ApplicationTodoList) getApplication();
-        sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
     }
 
     @Override

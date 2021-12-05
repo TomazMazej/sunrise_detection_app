@@ -69,7 +69,7 @@ public class MainFragment extends Fragment {
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle("TODO Lists");
 
-        //datum
+        // Nastavimo datum na današnji dan
         dateTimeDisplay = view.findViewById(R.id.date_text);
         calendar = Calendar.getInstance();
 
@@ -118,7 +118,6 @@ public class MainFragment extends Fragment {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 // Pošljemo zahtevo za izbris
                                 todoListAPI = retrofit.create(TodoListAPI.class);
-                                //Call<Void> call = todoListAPI.deleteTodoList("test", theList.get(item).getId());
                                 Call<Void> call = todoListAPI.deleteTodoList(app.idAPP, theList.get(item).getId());
 
                                 call.enqueue(new Callback<Void>() {
@@ -149,8 +148,6 @@ public class MainFragment extends Fragment {
 
         // Dobimo vse sezname opravil
         todoListAPI = retrofit.create(TodoListAPI.class);
-        //Call<List<GetTodoList>> call = todoListAPI.getTodoLists("test");
-        System.out.println("ID APLIKACIJE: " + app.idAPP);
         Call<List<GetTodoList>> call = todoListAPI.getTodoLists(app.idAPP);
 
         call.enqueue(new Callback<List<GetTodoList>>() {

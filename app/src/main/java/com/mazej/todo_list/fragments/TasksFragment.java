@@ -37,14 +37,14 @@ import com.mazej.todo_list.objects.TodoList;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TasksFragment extends Fragment
-{
+public class TasksFragment extends Fragment {
 
     private TodoListAPI todoListAPI;
 
@@ -62,9 +62,7 @@ public class TasksFragment extends Fragment
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState)
-    {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_task, container, false);
         app = (ApplicationTodoList) getActivity().getApplication();
@@ -75,65 +73,49 @@ public class TasksFragment extends Fragment
         addTaskButton = view.findViewById(R.id.add_task_btn);
 
         taskList = view.findViewById(R.id.taskList);
+        app.theList = new ArrayList<>();
 
         // Set custom adapter
-        arrayAdapter = new TaskAdapter(getActivity().getBaseContext(), R.layout.adapter_task,
-                app.theList, todoList.getId(), app);
+        arrayAdapter = new TaskAdapter(getActivity().getBaseContext(), R.layout.adapter_task, app.theList, todoList.getId(), app);
         taskList.setAdapter(arrayAdapter);
 
         // Dodamo opravila v seznam
-        if (todoList.getTasks() != null)
-        {
-            for (int i = 0; i < todoList.getTasks().size(); i++)
-            {
-                app.theList.add(todoList.getTasks().get(i));
-            }
+        if (todoList.getTasks() != null) {
+            app.theList.addAll(todoList.getTasks());
         }
-
         arrayAdapter.notifyDataSetChanged();
 
         // Z dolgim pritiskom na opravilo ga lahko izbrišemo
-        taskList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener()
-        {
+        taskList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(final AdapterView<?> adapterView, View view, int i, long l)
-            {
+            public boolean onItemLongClick(final AdapterView<?> adapterView, View view, int i, long l) {
                 final int item = i;
 
                 new AlertDialog.Builder(getActivity())
                         .setIcon(android.R.drawable.ic_delete)
                         .setTitle("Are you sure ?")
                         .setMessage("Do you want to delete this task")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener()
-                        {
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialogInterface, int i)
-                            {
+                            public void onClick(DialogInterface dialogInterface, int i) {
                                 // Pošljemo zahtevo za izbris
                                 todoListAPI = retrofit.create(TodoListAPI.class);
-                                Call<Void> call = todoListAPI.deleteTask(ApplicationTodoList.idAPP, todoList.getId(),
-                                        app.theList.get(item).getId());
+                                Call<Void> call = todoListAPI.deleteTask(ApplicationTodoList.idAPP, todoList.getId(), app.theList.get(item).getId());
 
-                                call.enqueue(new Callback<Void>()
-                                {
+                                call.enqueue(new Callback<Void>() {
                                     @Override
-                                    public void onResponse(Call<Void> call, Response<Void> response)
-                                    {
-                                        if (!response.isSuccessful())
-                                        { // Če zahteva ni uspešna
+                                    public void onResponse(Call<Void> call, Response<Void> response) {
+                                        if (!response.isSuccessful()) { // Če zahteva ni uspešna
                                             System.out.println("Response: DeleteTask neuspesno!");
                                         }
-                                        else
-                                        {
+                                        else {
                                             System.out.println("Response: DeleteTask uspešno!");
                                             app.theList.remove(item);
                                             arrayAdapter.notifyDataSetChanged();
                                         }
                                     }
-
                                     @Override
-                                    public void onFailure(Call<Void> call, Throwable t)
-                                    {
+                                    public void onFailure(Call<Void> call, Throwable t) {
                                         System.out.println("No response: DeleteTask neuspešno!");
                                         System.out.println(t);
                                     }
@@ -147,8 +129,7 @@ public class TasksFragment extends Fragment
         });
 
         // Prikažemo dialog za dodajanje opravila
-        addTaskButton.setOnClickListener(new View.OnClickListener()
-        {
+        addTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -157,22 +138,17 @@ public class TasksFragment extends Fragment
         });
 
         // Ko pritisnemo na item, ga lahko uredimo
-        taskList.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
+        taskList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @SuppressLint("WrongConstant")
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {
-                System.out.println("kliknili smo na i " + position);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 showEditTaskDialog(position);
             }
         });
-
         return view;
     }
 
-    void showEditTaskDialog(int position)
-    {
+    void showEditTaskDialog(int position) {
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
@@ -187,47 +163,35 @@ public class TasksFragment extends Fragment
         nameEt.setText(task.getName());
         descriptionEt.setText(task.getDescription());
 
-        submitButton.setOnClickListener(new View.OnClickListener()
-        {
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 String name = nameEt.getText().toString();
                 String description = descriptionEt.getText().toString();
-                String date = getDate(datePickerD.getYear(), datePickerD.getMonth(),
-                        datePickerD.getDayOfMonth());
+                String date = getDate(datePickerD.getYear(), datePickerD.getMonth(), datePickerD.getDayOfMonth());
 
                 // Pošljemo zahtevo za spremembo opravila
-                PutTask list = new PutTask(ApplicationTodoList.idAPP, task.getId(), name, description, date,
-                        task.isCompleted());
+                PutTask list = new PutTask(ApplicationTodoList.idAPP, task.getId(), name, description, date, task.isCompleted());
                 todoListAPI = retrofit.create(TodoListAPI.class);
-                Call<PutTask> call = todoListAPI.putTask(list, ApplicationTodoList.idAPP, todoList.getId(),
-                        task.getId());
+                Call<PutTask> call = todoListAPI.putTask(list, ApplicationTodoList.idAPP, todoList.getId(), task.getId());
 
-                call.enqueue(new Callback<PutTask>()
-                {
+                call.enqueue(new Callback<PutTask>() {
                     @Override
-                    public void onResponse(Call<PutTask> call, Response<PutTask> response)
-                    {
-                        if (!response.isSuccessful())
-                        { // Če zahteva ni uspešna
+                    public void onResponse(Call<PutTask> call, Response<PutTask> response) {
+                        if (!response.isSuccessful()) { // Če zahteva ni uspešna
                             System.out.println("Response: PutTask neuspesno!");
                             System.out.println(date);
                         }
-                        else
-                        {
+                        else {
                             System.out.println("Response: PutTask uspešno!");
-
-                            app.theList.set(position, new Task(task.getId(), name, description,
-                                    date, false));
+                            app.theList.set(position, new Task(task.getId(), name, description, date, false));
                             arrayAdapter.notifyDataSetChanged();
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<PutTask> call, Throwable t)
-                    {
+                    public void onFailure(Call<PutTask> call, Throwable t) {
                         System.out.println("No response: PutTask neuspešno!");
                         System.out.println(t);
                     }
@@ -238,8 +202,7 @@ public class TasksFragment extends Fragment
         dialog.show();
     }
 
-    void showAddTaskDialog()
-    {
+    void showAddTaskDialog() {
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
@@ -250,43 +213,33 @@ public class TasksFragment extends Fragment
         EditText descriptionEt = dialog.findViewById(R.id.description_et);
         DatePicker datePickerD = dialog.findViewById(R.id.date_picker);
 
-        submitButton.setOnClickListener(new View.OnClickListener()
-        {
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 String name = nameEt.getText().toString();
                 String description = descriptionEt.getText().toString();
-                String date = getDate(datePickerD.getYear(), datePickerD.getMonth(),
-                        datePickerD.getDayOfMonth());
+                String date = getDate(datePickerD.getYear(), datePickerD.getMonth(), datePickerD.getDayOfMonth());
                 // Pošljemo zahtevo za dodajanje opravila
                 PostTask list = new PostTask(ApplicationTodoList.idAPP, "", name, description, date, false);
                 todoListAPI = retrofit.create(TodoListAPI.class);
                 Call<PostTask> call = todoListAPI.postTask(list, ApplicationTodoList.idAPP, todoList.getId());
 
-                call.enqueue(new Callback<PostTask>()
-                {
+                call.enqueue(new Callback<PostTask>() {
                     @Override
-                    public void onResponse(Call<PostTask> call, Response<PostTask> response)
-                    {
-                        if (!response.isSuccessful())
-                        { // Če zahteva ni uspešna
+                    public void onResponse(Call<PostTask> call, Response<PostTask> response) {
+                        if (!response.isSuccessful()) { // Če zahteva ni uspešna
                             System.out.println("Response: PostTask neuspesno!");
                             System.out.println(date);
                         }
-                        else
-                        {
+                        else {
                             System.out.println("Response: PostTask uspešno!");
-                            app.theList.add(new Task(response.body().getId(), name, description,
-                                    date, false));
+                            app.theList.add(new Task(response.body().getId(), name, description, date, false));
                             arrayAdapter.notifyDataSetChanged();
                         }
                     }
-
                     @Override
-                    public void onFailure(Call<PostTask> call, Throwable t)
-                    {
+                    public void onFailure(Call<PostTask> call, Throwable t) {
                         System.out.println("No response: PostTask neuspešno!");
                         System.out.println(t);
                     }
@@ -297,8 +250,7 @@ public class TasksFragment extends Fragment
         dialog.show();
     }
 
-    public static String getDate(int year, int month, int day)
-    {
+    public static String getDate(int year, int month, int day) {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, year);
         cal.set(Calendar.MONTH, month);
