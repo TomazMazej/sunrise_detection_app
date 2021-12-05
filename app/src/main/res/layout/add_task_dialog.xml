@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="@string/add_task"
-            android:fontFamily="@font/merriweather_regular"
+            android:fontFamily="@font/merriweather_bold"
             android:textColor="#000000"
             android:textSize="24sp"
             android:gravity="center"/>

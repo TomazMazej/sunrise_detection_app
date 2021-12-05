@@ -27,6 +27,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mazej.todo_list.R;
+import com.mazej.todo_list.adapters.TaskAdapter;
 import com.mazej.todo_list.database.GetTodoList;
 import com.mazej.todo_list.database.PostTodoList;
 import com.mazej.todo_list.database.TodoListAPI;
@@ -81,6 +82,9 @@ public class MainFragment extends Fragment {
         theList = new ArrayList<>();
         todoLists = view.findViewById(R.id.todoLists);
         addListButton = view.findViewById(R.id.add_list_btn);
+
+        //arrayAdapter = new TaskAdapter(getActivity().getBaseContext(), R.layout.adapter_task, app.theList, todoList.getId(), app);
+        //taskList.setAdapter(arrayAdapter);
 
         arrayAdapter = new ArrayAdapter<String>(getActivity().getBaseContext(), android.R.layout.simple_list_item_1, names);
         todoLists.setAdapter(arrayAdapter);

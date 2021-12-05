@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_todo_list"
-        android:fontFamily="@font/merriweather_regular"
+        android:fontFamily="@font/merriweather_bold"
         android:textSize="24sp"
         android:textColor="#000000"
         android:layout_marginBottom="16dp"

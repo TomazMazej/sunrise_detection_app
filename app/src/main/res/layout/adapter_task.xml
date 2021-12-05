@@ -14,8 +14,10 @@
         android:button="@drawable/custom_checkbox"
         android:checked="false"
         android:focusable="false"
-        android:layout_marginLeft="5dp"
-        android:layout_marginStart="5dp" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/nameText"
@@ -29,7 +31,8 @@
         android:maxLines="10"
         android:textColor="#000"
         android:textSize="18sp"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/dateText"
@@ -42,7 +45,8 @@
         android:text="@string/_6_12_2012"
         android:textSize="22sp"
         android:textAlignment="center"
-        android:textColor="#0EA80E"
-        android:textStyle="bold" />
+        android:textColor="#61A374"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

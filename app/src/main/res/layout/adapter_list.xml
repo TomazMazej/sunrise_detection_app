@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="100"
+    android:background="@drawable/list_style">
+
+    <TextView
+        android:id="@+id/nameTextList"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:padding="5dp"
+        android:layout_weight="50"
+        android:fontFamily="@font/merriweather_regular"
+        android:gravity="center"
+        android:text="@string/pomij_posodo"
+        android:maxLines="10"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
