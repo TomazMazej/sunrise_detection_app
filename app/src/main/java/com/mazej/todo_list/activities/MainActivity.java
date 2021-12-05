@@ -10,6 +10,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -27,6 +31,7 @@ import com.mazej.todo_list.fragments.AboutFragment;
 import com.mazej.todo_list.fragments.MainFragment;
 import com.mazej.todo_list.fragments.PrivacyFragment;
 import com.mazej.todo_list.fragments.SettingsFragment;
+import com.mazej.todo_list.notifications.NotificationService;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -47,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        createNotificationsChanel();
         initData();
 
         // Toolbar
@@ -111,5 +117,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static void hideButtons() { // Skrijemo gumbe na toolbaru
         myMenu.findItem(R.id.general).setVisible(false);
         myMenu.findItem(R.id.other).setVisible(false);
+    }
+
+    private void createNotificationsChanel() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            CharSequence name = "notificationsChanel";
+            String description = "Chanel to notify when we need to complete our tasks.";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel chanel = new NotificationChannel("id", name, importance);
+            chanel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(chanel);
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        startService(new Intent(this, NotificationService.class));
     }
 }
