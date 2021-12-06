@@ -33,10 +33,11 @@
             android:text="@string/thursday_december_2nd"
             android:fontFamily="@font/merriweather_regular"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:layout_marginLeft="10dp"
             tools:ignore="MissingConstraints"
-            android:layout_marginStart="10dp" />
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"/>
 
         <ListView
             android:id="@+id/todoLists"

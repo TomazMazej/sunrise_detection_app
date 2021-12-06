@@ -14,7 +14,21 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:maxLines="200"
-            android:text="We are MKFJM development team /n"
+            android:text="This app was created by MKFJM Development during our project asignment. \n \n
+Roles: \n
+Tomaz Mazej: \n
+-Project manager, \n
+-Frontend developer \n\n
+David Krajnc: \n
+-App design \n\n
+Anze Fercec: \n
+-Backend developer \n
+-Database \n\n
+Nejc Jeusnik: \n
+-Lead backend developer \n\n
+Samo Miklavc: \n
+-Frontend developer, \n
+-Server hosting"
             android:fontFamily="@font/merriweather_regular"
             android:textSize="20sp"
             android:textColor="#ffffff"

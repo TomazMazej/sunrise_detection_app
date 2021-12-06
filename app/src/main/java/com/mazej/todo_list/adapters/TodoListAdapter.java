@@ -41,7 +41,6 @@ public class TodoListAdapter extends ArrayAdapter<TodoList> {
     private final int mResource;
     private LayoutInflater inflater;
 
-    private String id;
     private String name;
 
     private TextView tvName;
@@ -57,7 +56,6 @@ public class TodoListAdapter extends ArrayAdapter<TodoList> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        id = getItem(position).getId();
         name = getItem(position).getName();
 
         inflater = LayoutInflater.from(mContext);

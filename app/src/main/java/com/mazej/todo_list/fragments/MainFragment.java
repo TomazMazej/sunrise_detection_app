@@ -84,9 +84,6 @@ public class MainFragment extends Fragment {
         todoLists = view.findViewById(R.id.todoLists);
         addListButton = view.findViewById(R.id.add_list_btn);
 
-        //arrayAdapter = new TaskAdapter(getActivity().getBaseContext(), R.layout.adapter_task, app.theList, todoList.getId(), app);
-        //taskList.setAdapter(arrayAdapter);
-
         arrayAdapter = new TodoListAdapter(getActivity().getBaseContext(), R.layout.adapter_list, theList);
         todoLists.setAdapter(arrayAdapter);
 
@@ -168,6 +165,7 @@ public class MainFragment extends Fragment {
                         names.add(tdl.getName());
                     }
                     arrayAdapter.notifyDataSetChanged();
+                    app.listCounter = theList.size();
                 }
             }
             @Override
@@ -178,6 +176,7 @@ public class MainFragment extends Fragment {
         });
         return view;
     }
+
     void showAddListDialog() {
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

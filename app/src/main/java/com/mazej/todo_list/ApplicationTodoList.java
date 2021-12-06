@@ -25,6 +25,7 @@ public class ApplicationTodoList extends Application {
     public static String idAPP;
 
     public ArrayList<Task> theList;
+    public static int listCounter = 0;
 
     public void onCreate() {
         super.onCreate();

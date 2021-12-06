@@ -75,7 +75,6 @@ public class TasksFragment extends Fragment {
         taskList = view.findViewById(R.id.taskList);
         app.theList = new ArrayList<>();
 
-        // Set custom adapter
         arrayAdapter = new TaskAdapter(getActivity().getBaseContext(), R.layout.adapter_task, app.theList, todoList.getId(), app);
         taskList.setAdapter(arrayAdapter);
 

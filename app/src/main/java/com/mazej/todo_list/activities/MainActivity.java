@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) { // Handles side nav buttons
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) { // Gumbi na stranskem meniju
         hideButtons();
         drawerLayout.closeDrawer(GravityCompat.START);
         fragmentManager = getSupportFragmentManager();

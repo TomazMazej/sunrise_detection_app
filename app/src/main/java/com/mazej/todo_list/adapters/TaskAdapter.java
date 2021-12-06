@@ -41,7 +41,6 @@ public class TaskAdapter extends ArrayAdapter<Task> {
     private final int mResource;
     private LayoutInflater inflater;
 
-    private String id;
     private String name;
     private String description;
 
@@ -69,7 +68,6 @@ public class TaskAdapter extends ArrayAdapter<Task> {
     public View getView(final int position, View convertView, ViewGroup parent) {
 
         Task task = getItem(position);
-        id = getItem(position).getId();
         name = getItem(position).getName();
         description = getItem(position).getDescription();
 
@@ -86,9 +84,9 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         tvDate = (TextView) convertView.findViewById(R.id.dateText);
         simpleCheckBox = (CheckBox) convertView.findViewById(R.id.simpleCheckBox);
 
-        String vmesna = name + "\n" + description;
-        SpannableString ss1=  new SpannableString(vmesna);
-        ss1.setSpan(new RelativeSizeSpan(0.75f),name.length(),vmesna.length(), 0);
+        String temp = name + "\n" + description;
+        SpannableString ss1=  new SpannableString(temp);
+        ss1.setSpan(new RelativeSizeSpan(0.75f),name.length(),temp.length(), 0);
 
         tvName.setText(ss1);
         tvDate.setText(output);

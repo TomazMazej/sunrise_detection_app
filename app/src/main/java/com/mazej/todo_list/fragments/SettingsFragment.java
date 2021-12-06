@@ -11,7 +11,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mazej.todo_list.ApplicationTodoList;
 import com.mazej.todo_list.R;
+import com.mazej.todo_list.database.TodoListAPI;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,10 +29,11 @@ import static com.mazej.todo_list.activities.MainActivity.toolbar;
 public class SettingsFragment extends Fragment {
 
     private SharedPreferences sp;
+    private ApplicationTodoList app;
 
     private Switch sw;
     private TextView userTextView;
-    private TextView plantCounter;
+    private TextView counter;
 
     public SettingsFragment() {
     }
@@ -40,6 +43,7 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
+        app = (ApplicationTodoList) getActivity().getApplication();
 
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle("Settings");
@@ -47,7 +51,9 @@ public class SettingsFragment extends Fragment {
         sp = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
         userTextView = view.findViewById(R.id.usernameTV);
         sw = view.findViewById(R.id.Notifications_switch);
-        plantCounter = view.findViewById(R.id.plant_count);
+        counter = view.findViewById(R.id.list_count);
+
+        counter.setText("My TODO Lists: " + app.listCounter);
 
         return view;
     }
