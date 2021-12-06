@@ -28,7 +28,8 @@
             android:background="@mipmap/profile_pic"
             android:scaleType="center"
             android:scaleX="2"
-            android:scaleY="2" />
+            android:scaleY="2"
+            android:contentDescription="@string/profile" />
 
         <Space
             android:layout_width="match_parent"
@@ -40,9 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/merriweather_bold"
-            android:text="My profile"
+            android:text="@string/my_profile"
             android:textSize="30sp"
-            android:textColor="#ffffff"/>
+            android:textColor="@color/primaryTextColor"/>
 
         <Space
             android:layout_width="match_parent"
@@ -58,15 +59,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_notifications_active_24" />
+                android:src="@drawable/ic_baseline_notifications_active_24"
+                android:contentDescription="@string/notification" />
 
             <Switch
                 android:id="@+id/Notifications_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/merriweather_regular"
-                android:text="Notifications"
-                android:textColor="#CFCECE"
+                android:text="@string/notifications"
+                android:textColor="@color/text_grey"
                 android:textSize="24sp"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -121,7 +123,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_wb_sunny_24" />
+                android:src="@drawable/ic_baseline_wb_sunny_24"
+                android:contentDescription="@string/theme" />
 
             <Switch
                 android:id="@+id/Theme_switch"
@@ -129,8 +132,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/merriweather_regular"
-                android:text="Theme"
-                android:textColor="#CFCECE"
+                android:text="@string/theme"
+                android:textColor="@color/text_grey"
                 android:textSize="24sp"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -146,9 +149,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/merriweather_regular"
-            android:text="My TODO Lists: 0"
+            android:text="@string/my_todo_lists_0"
             android:textSize="24sp"
-            android:textColor="#ffffff"/>
+            android:textColor="@color/primaryTextColor"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

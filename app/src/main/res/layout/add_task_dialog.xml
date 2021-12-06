@@ -15,7 +15,7 @@
             android:layout_marginBottom="16dp"
             android:text="@string/add_task"
             android:fontFamily="@font/merriweather_bold"
-            android:textColor="#000000"
+            android:textColor="@color/text_black"
             android:textSize="24sp"
             android:gravity="center"/>
 
@@ -26,7 +26,8 @@
             android:hint="@string/name"
             android:fontFamily="@font/merriweather_regular"
             android:imeOptions="actionNext"
-            android:inputType="text" />
+            android:inputType="text"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/description_et"
@@ -35,7 +36,8 @@
             android:hint="@string/description"
             android:fontFamily="@font/merriweather_regular"
             android:imeOptions="actionNext"
-            android:inputType="text" />
+            android:inputType="text"
+            android:autofillHints="" />
 
         <DatePicker
             android:id="@+id/date_picker"
@@ -53,6 +55,6 @@
             android:text="@string/add"
             android:textSize="20sp"
             android:background="@drawable/button_style"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/primaryTextColor" />
     </LinearLayout>
 </ScrollView>

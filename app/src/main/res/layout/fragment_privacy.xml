@@ -5,7 +5,7 @@
     android:layout_marginTop="?attr/actionBarSize"
     android:layout_height="match_parent">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -17,7 +17,7 @@
         android:text="@string/Privacy_policy"
         android:fontFamily="@font/merriweather_regular"
         android:textSize="20sp"
-        android:textColor="#ffffff"
+        android:textColor="@color/primaryTextColor"
         android:textAlignment="center"
         tools:ignore="MissingConstraints"
         android:layout_marginLeft="10dp"
