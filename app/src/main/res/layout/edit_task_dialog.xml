@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp">
+        android:layout_margin="16dp"
+        android:background="@drawable/dialog_style">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Edit Task"
             android:textSize="24sp"
             android:textColor="#000000"
             android:layout_marginBottom="16dp"
-            android:fontFamily="@font/merriweather_regular"/>
+            android:fontFamily="@font/merriweather_bold"
+            android:gravity="center"
+            android:textAlignment="center"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -50,9 +54,9 @@
             android:layout_gravity="end"
             android:text="Save"
             android:textColor="#FFFFFF"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/button_style"
             android:id="@+id/submit_button_edit"
-            android:fontFamily="@font/merriweather_regular"/>
+            android:fontFamily="@font/merriweather_regular" />
     </LinearLayout>
 </ScrollView>
 

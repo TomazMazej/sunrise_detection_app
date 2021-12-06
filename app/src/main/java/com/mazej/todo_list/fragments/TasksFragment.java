@@ -199,6 +199,7 @@ public class TasksFragment extends Fragment {
             }
         });
         dialog.show();
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_style);
     }
 
     void showAddTaskDialog() {
