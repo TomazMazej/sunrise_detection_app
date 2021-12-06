@@ -35,10 +35,37 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListAdapter extends ArrayAdapter<TodoList> {
+public class TodoListAdapter extends ArrayAdapter<TodoList> {
 
+    private final Context mContext;
+    private final int mResource;
+    private LayoutInflater inflater;
 
-    public ListAdapter(@NonNull Context context, int resource) {
-        super(context, resource);
+    private String id;
+    private String name;
+
+    private TextView tvName;
+
+    public TodoListAdapter(Context context, int resource, ArrayList<TodoList> objects) {
+        super(context, resource, objects);
+        mContext = context;
+        mResource = resource;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @NonNull
+    @Override
+    public View getView(final int position, View convertView, ViewGroup parent) {
+
+        id = getItem(position).getId();
+        name = getItem(position).getName();
+
+        inflater = LayoutInflater.from(mContext);
+        convertView = inflater.inflate(mResource, parent, false);
+
+        tvName = (TextView) convertView.findViewById(R.id.nameTextList);
+        tvName.setText(name);
+
+        return convertView;
     }
 }

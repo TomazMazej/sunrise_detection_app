@@ -28,6 +28,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mazej.todo_list.R;
 import com.mazej.todo_list.adapters.TaskAdapter;
+import com.mazej.todo_list.adapters.TodoListAdapter;
 import com.mazej.todo_list.database.GetTodoList;
 import com.mazej.todo_list.database.PostTodoList;
 import com.mazej.todo_list.database.TodoListAPI;
@@ -49,7 +50,7 @@ public class MainFragment extends Fragment {
     private ListView todoLists;
     private ArrayList<TodoList> theList;
     private ArrayList<String> names;
-    private ArrayAdapter<String> arrayAdapter;
+    private TodoListAdapter arrayAdapter;
 
     private TextView dateTimeDisplay;
     private Calendar calendar;
@@ -86,7 +87,7 @@ public class MainFragment extends Fragment {
         //arrayAdapter = new TaskAdapter(getActivity().getBaseContext(), R.layout.adapter_task, app.theList, todoList.getId(), app);
         //taskList.setAdapter(arrayAdapter);
 
-        arrayAdapter = new ArrayAdapter<String>(getActivity().getBaseContext(), android.R.layout.simple_list_item_1, names);
+        arrayAdapter = new TodoListAdapter(getActivity().getBaseContext(), R.layout.adapter_list, theList);
         todoLists.setAdapter(arrayAdapter);
 
         // Gumb za dodajanje novega seznama opravil
