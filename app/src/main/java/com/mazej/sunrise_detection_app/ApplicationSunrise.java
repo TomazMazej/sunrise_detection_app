@@ -26,8 +26,8 @@ public class ApplicationSunrise extends Application {
     private SharedPreferences sp;
     public static String idAPP;
 
-    Gson gson;
-    File file;
+    private Gson gson;
+    private File file;
 
     public void onCreate() {
         super.onCreate();

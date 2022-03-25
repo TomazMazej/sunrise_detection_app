@@ -4,6 +4,7 @@ import static android.content.Context.SENSOR_SERVICE;
 import static com.mazej.sunrise_detection_app.activities.MainActivity.app;
 import static com.mazej.sunrise_detection_app.activities.MainActivity.toolbar;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -86,6 +87,17 @@ public class MainFragment extends Fragment {
         }
         adapter.notifyDataSetChanged();
 
+        // Ko pritisnemo na experiment nas preusmeri do vec informacij
+        experimentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @SuppressLint("WrongConstant")
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container_fragment, new ExperimentInfoFragment(app.experimentList.getList().get(position)), "findThisFragment").addToBackStack(null).commit();
+            }
+        });
+
+        // Izbrisemo z dolgim klikom
         experimentList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(final AdapterView<?> adapterView, View view, int i, long l) {
@@ -94,7 +106,7 @@ public class MainFragment extends Fragment {
                 new AlertDialog.Builder(getActivity())
                         .setIcon(android.R.drawable.ic_delete)
                         .setTitle("Are you sure ?")
-                        .setMessage("Do you want to delete this list")
+                        .setMessage("Do you want to delete this experiment")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -113,6 +125,7 @@ public class MainFragment extends Fragment {
             }
         });
 
+        // Dodamo nov experiment
         addExperimentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

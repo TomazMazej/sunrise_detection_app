@@ -46,6 +46,8 @@ import com.mazej.sunrise_detection_app.objects.Experiment;
 import com.mazej.sunrise_detection_app.objects.ExperimentList;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class ExperimentFragment extends Fragment {
     public static final int THRESHOLD = 10000;
@@ -57,6 +59,9 @@ public class ExperimentFragment extends Fragment {
     private float maxValue;
 
     private Experiment exp;
+    private Calendar calendar;
+    private SimpleDateFormat simpleDateFormat;
+    private String dateTime;
 
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
@@ -84,7 +89,7 @@ public class ExperimentFragment extends Fragment {
             Toast.makeText(getActivity(), "The device has no light sensor !", Toast.LENGTH_SHORT).show();
         }
 
-        // max value for light sensor
+        // Najvisnja vrednost senzorja
         maxValue = lightSensor.getMaximumRange();
 
         lightEventListener = new SensorEventListener() {
@@ -93,13 +98,17 @@ public class ExperimentFragment extends Fragment {
                 float value = sensorEvent.values[0];
                 ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Luminosity : " + value + " lx");
 
-                // between 0 and 255
+                // Med 0 in 255
                 int newValue = (int) (255f * value / maxValue);
                 root.setBackgroundColor(Color.rgb(newValue, newValue, newValue));
 
+                // Ce je vrednost visja od praga
                 if(value >= THRESHOLD && x){
                     x = false;
-                    exp.setDetected_sunrise(new Time().toString());
+                    calendar = Calendar.getInstance();
+                    simpleDateFormat = new SimpleDateFormat("HH:mm");
+                    dateTime = simpleDateFormat.format(calendar.getTime()).toString();
+                    exp.setDetected_sunrise(dateTime);
                     try {
                         ApplicationSunrise.experimentList.add(exp);
                         app.saveData();
@@ -115,7 +124,6 @@ public class ExperimentFragment extends Fragment {
 
             @Override
             public void onAccuracyChanged(Sensor sensor, int i) {
-
             }
         };
         return view;
@@ -132,5 +140,4 @@ public class ExperimentFragment extends Fragment {
         super.onPause();
         sensorManager.unregisterListener(lightEventListener);
     }
-
 }
