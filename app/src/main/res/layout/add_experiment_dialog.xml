@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add_todo_list"
+        android:text="@string/add_experiment"
         android:fontFamily="@font/merriweather_bold"
         android:textSize="24sp"
         android:textColor="@color/text_black"
@@ -18,17 +18,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/merriweather_regular"
-        android:hint="@string/name"
+        android:hint="@string/experiment_name"
         android:inputType="text"
         android:imeOptions="actionNext"
-        android:id="@+id/name_et"
+        android:id="@+id/exp_name"
+        android:autofillHints="" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/merriweather_regular"
+        android:hint="@string/tester"
+        android:inputType="text"
+        android:imeOptions="actionNext"
+        android:id="@+id/tester"
+        android:autofillHints="" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/merriweather_regular"
+        android:hint="@string/scheduled_sunrise"
+        android:inputType="text"
+        android:imeOptions="actionNext"
+        android:id="@+id/sunrise"
         android:autofillHints="" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:text="@string/add"
+        android:text="@string/start_experiment"
         android:textSize="20sp"
         android:fontFamily="@font/merriweather_regular"
         android:textColor="@color/primaryTextColor"

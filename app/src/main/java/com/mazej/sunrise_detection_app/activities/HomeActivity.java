@@ -1,10 +1,10 @@
-package com.mazej.todo_list.activities;
+package com.mazej.sunrise_detection_app.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.mazej.todo_list.R;
+import com.mazej.sunrise_detection_app.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 

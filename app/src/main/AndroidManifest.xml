@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mazej.todo_list">
+    package="com.mazej.sunrise_detection_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,24 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
-        android:name=".ApplicationTodoList">
-        <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.HomeActivity">
+        android:name="com.mazej.sunrise_detection_app.ApplicationSunrise">
+        <activity android:name="com.mazej.sunrise_detection_app.activities.MainActivity" />
+        <activity android:name="com.mazej.sunrise_detection_app.activities.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <service
-            android:name=".notifications.NotificationService"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="your.app.domain.NotificationService" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
     </application>
 </manifest>

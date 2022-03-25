@@ -1,4 +1,4 @@
-package com.mazej.todo_list;
+package com.mazej.sunrise_detection_app;
 
 import android.content.Context;
 
