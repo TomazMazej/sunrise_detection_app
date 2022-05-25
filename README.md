@@ -1,6 +1,8 @@
 # Sunrise Detection App
 Sunrise Detection Android App.
 
+## App must be calibrated before use!
+
 ## Usage and functions
 * Add, remove experiment
 * Detect sunrise
@@ -13,8 +15,7 @@ Sunrise Detection Android App.
 * Add function to change theme to dark mode in settings
 
 ## Pictures
-![Image1](/pictures/1.jpg)
-![Image2](/pictures/2.jpg)
-![Image3](/pictures/3.jpg)
-![Image4](/pictures/4.jpg)
-![Image5](/pictures/5.jpg)
+![Image1](/pictures/1.JPG)
+![Image2](/pictures/2.JPG)
+![Image3](/pictures/3.JPG)
+![Image4](/pictures/4.JPG)
