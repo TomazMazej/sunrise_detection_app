@@ -50,7 +50,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class ExperimentFragment extends Fragment {
-    public static final int THRESHOLD = 10000;
+    public static final int THRESHOLD = 5;
 
     private SensorManager sensorManager;
     private Sensor lightSensor;
